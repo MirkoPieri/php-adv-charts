@@ -5,5 +5,6 @@
   include 'fulldb.php';
 
 
-  echo json_encode($graphs);
+  echo json_encode($CharLine);
+  // primo grafico a linea
 ?>

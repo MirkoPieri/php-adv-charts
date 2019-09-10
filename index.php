@@ -35,6 +35,7 @@
 
       <div class="chart">
         <canvas id="myChart"></canvas>
+        <canvas id="myChart1"></canvas>
       </div>
 
 
