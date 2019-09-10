@@ -32,10 +32,16 @@
   </head>
   <body>
     <main>
-
+      <header>
+        <h1>Advanced Dashboard Charts</h1>
+      </header>
       <div class="chart">
-        <canvas id="myChart"></canvas>
-        <canvas id="myChart1"></canvas>
+        <div class="graphic">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="graphic">
+          <canvas id="myChart1"></canvas>
+        </div>
       </div>
 
 

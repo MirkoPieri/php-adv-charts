@@ -10,11 +10,28 @@ main {
   background-color: white;
 }
 
-div.chart {
-  width: 60%;
-  height: auto;
+header {
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+  border: 8px solid black;
 }
 
-canvas {
-  padding: 50px;
+header h1 {
+ color: white;
+ text-align: center;
+ font-size: 35pt;
+ margin: 50px;
+}
+
+div.chart {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.graphic {
+  width: 40%;
+  margin: 100px auto;
 }
