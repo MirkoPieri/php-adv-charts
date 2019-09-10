@@ -11,16 +11,16 @@ function get_Moment() {
   return month;
 }
 
-function getChart(data) {
+function getChart(char1) {
 
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'line',
+        type: char1.type,
       data: {
           labels:  get_Moment(),
           datasets: [{
               label: 'Vendite',
-              data: data,
+              data: char1.data,
               pointBackgroundColor: [
                 'green',
                 'green',
@@ -51,10 +51,14 @@ function getChart(data) {
 function getData() {
 
   $.ajax({
-    url: 'fulldb.php',
+    url: 'database.php',
     method: 'GET',
     success: function(data) {
-      getChart(data)
+      var char1 = data.fatturato;
+      var char2 = data.fatturato_by_agent;
+      getChart(char1);
+      getCharPie(char2);
+      console.log(char2);
     },
     error: function(error) {
       alert('Errore');
