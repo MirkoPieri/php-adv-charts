@@ -42,10 +42,12 @@
         <div class="graphic">
           <canvas id="myChart1"></canvas>
         </div>
+        <div class="graphic">
+          <canvas id="myChart2"></canvas>
+        </div>
       </div>
 
-
-
+      <?php include 'fulldb.php' ?>
     </main>
   </body>
 </html>

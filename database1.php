@@ -4,7 +4,14 @@
 
   include 'fulldb.php';
 
+  $newArray1 = [];
 
-  echo json_encode($newArrayPie);
+  if ($acces == 'employee') {
+   $newArray1[] = $graphs['fatturato_by_agent'];
+ } elseif ($acces == 'clevel') {
+  $newArray1[] = $graphs['fatturato_by_agent'];
+}
+
+  echo json_encode($newArray1);
   //secondo grafico a torta
 ?>
