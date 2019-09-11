@@ -100,7 +100,7 @@ function getChart2(data) {
 function getChartPie(data) {
 
   var arrayPie = data;
-  console.log(arrayPie);
+
   if (arrayPie != "") {
     var names = Object.keys(arrayPie.data); //prendo nomi venditori
     var values = Object.values(arrayPie.data); //prendo vendite
@@ -127,12 +127,14 @@ function getChartPie(data) {
 } //funzione per creare secondo grafico a torta
 
 function getDataLine() {
-
+  var query = {'level': 'employee'};
   $.ajax({
     url: 'database.php',
     method: 'GET',
+    data: query,
     success: function(data) {
       getChart(data);
+      console.log(data, 'ciao');
     },
     error: function(error) {
       alert('Errore');
@@ -142,9 +144,12 @@ function getDataLine() {
 
 function getDataPie() {
 
+  var query = {'level': 'employee'};
+
   $.ajax({
     url: 'database1.php',
     method: 'GET',
+    data: query,
     success: function(data) {
       getChartPie(data)
     },
@@ -155,10 +160,12 @@ function getDataPie() {
 } //funzione per prendre dati grafico a torta
 
 function getDataLine2() {
+  var query = {'level': 'employee'};
 
   $.ajax({
     url: 'database2.php',
     method: 'GET',
+    data: query,
     success: function(data) {
       getChart2(data);
     },

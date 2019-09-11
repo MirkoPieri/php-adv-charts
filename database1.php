@@ -3,15 +3,16 @@
   header('Content-type: application/json');
 
   include 'fulldb.php';
+  $hola = $_GET['level'];
 
-  $newArray1 = [];
+  $nul = [];
 
-  if ($acces == 'employee') {
-   $newArray1[] = $graphs['fatturato_by_agent'];
- } elseif ($acces == 'clevel') {
-  $newArray1[] = $graphs['fatturato_by_agent'];
+  if ($hola === 'employee') {
+   echo json_encode($graphs['fatturato_by_agent']);
+ } elseif ($hola === 'clevel') {
+  echo json_encode($graphs['fatturato_by_agent']);
+} else {
+  echo json_encode($nul);
 }
-
-  echo json_encode($newArray1);
   //secondo grafico a torta
 ?>

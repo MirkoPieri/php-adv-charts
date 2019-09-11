@@ -27,9 +27,6 @@
       ]
     ];
 
-    $acces = $_GET['level'];
-
-    printf($acces);
 //   $CharLine = $graphs['fatturato']; //dati grafico a linea
 //   $charPie = $graphs['fatturato_by_agent']; //dati grafico a torta
 //   $pieVendite = []; //array vuoto per inserire vendite

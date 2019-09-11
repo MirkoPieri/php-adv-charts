@@ -1,20 +1,23 @@
 <?php
 
+
+
   header('Content-type: application/json');
 
   include 'fulldb.php';
 
-  $newArray = [];
+  $hola = $_GET['level'];
 
-  if ($acces == 'guest') {
-    $newArray[] = $graphs['fatturato'];
-  } elseif ($acces == 'employee') {
-    $newArray[] = $graphs['fatturato'];
-  } elseif ($acces == 'clevel') {
-    $newArray[] = $graphs['fatturato'];
+  $array1 = [];
+
+  if ($hola == 'guest') {
+    echo json_encode($graphs['fatturato']);
+  } else if ($hola == 'employee') {
+    echo json_encode($graphs['fatturato']);
+  } else if ($hola == 'clevel') {
+    echo json_encode($graphs['fatturato']);
   }
 
-  echo json_encode($newArray);
 
   // primo grafico a linea
 ?>

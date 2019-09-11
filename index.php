@@ -47,7 +47,6 @@
         </div>
       </div>
 
-      <?php include 'fulldb.php' ?>
     </main>
   </body>
 </html>
