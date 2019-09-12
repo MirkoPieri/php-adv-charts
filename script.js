@@ -1,8 +1,9 @@
 function init() {
   moment.locale('it');
-  getDataLine();
-  getDataPie();
-  getDataLine2();
+  var access = 'clevel';
+  getDataLine(access);
+  getDataPie(access);
+  getDataLine2(access);
 } //funzione principale
 
 $(document).ready(init);
@@ -126,8 +127,8 @@ function getChartPie(data) {
 
 } //funzione per creare secondo grafico a torta
 
-function getDataLine() {
-  var query = {'level': 'employee'};
+function getDataLine(access) {
+  var query = {'level': access};
   $.ajax({
     url: 'database.php',
     method: 'GET',
@@ -142,9 +143,9 @@ function getDataLine() {
   });
 } //funzione per prendere dati grafico a linea
 
-function getDataPie() {
+function getDataPie(access) {
 
-  var query = {'level': 'employee'};
+  var query = {'level': access};
 
   $.ajax({
     url: 'database1.php',
@@ -159,8 +160,8 @@ function getDataPie() {
   });
 } //funzione per prendre dati grafico a torta
 
-function getDataLine2() {
-  var query = {'level': 'employee'};
+function getDataLine2(access) {
+  var query = {'level': access};
 
   $.ajax({
     url: 'database2.php',
