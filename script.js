@@ -1,9 +1,9 @@
 function init() {
   moment.locale('it');
-  var access = 'clevel';
-  getDataLine(access);
-  getDataPie(access);
-  getDataLine2(access);
+  // var access = 'clevel';
+  getDataLine();
+  getDataPie();
+  getDataLine2();
 } //funzione principale
 
 $(document).ready(init);
@@ -15,9 +15,9 @@ function get_Moment() {
 } //funzione per mesi dell'anno
 
 function getChart(data) {
-    var datiLine = data;
+    var datiLine = data[0];
 
-    if (datiLine != "") {
+    if (datiLine != null) {
       var ctx = document.getElementById('myChart').getContext('2d');
       var myChart = new Chart(ctx, {
           type: datiLine.type,
@@ -50,15 +50,13 @@ function getChart(data) {
             }]
         }
       });
-
-    }
-
+    } //chiusura if
 } //funzione creare primo grafico a linea
 
 function getChart2(data) {
-    var arrayDati = data;
+    var arrayDati = data[0];
 
-    if (arrayDati != "") {
+    if (arrayDati != null) {
       var team = Object.keys(arrayDati.data);
       var value = Object.values(arrayDati.data);
 
@@ -94,15 +92,14 @@ function getChart2(data) {
             datasets: [data1, data2, data3]
         }
       });
-    }
-
+    } //chiusura if
 } //funzione creare secondo grafico a linea
 
 function getChartPie(data) {
 
-  var arrayPie = data;
+  var arrayPie = data[0];
 
-  if (arrayPie != "") {
+  if (arrayPie != null) {
     var names = Object.keys(arrayPie.data); //prendo nomi venditori
     var values = Object.values(arrayPie.data); //prendo vendite
     var ctx = document.getElementById('myChart1');
@@ -123,34 +120,44 @@ function getChartPie(data) {
         }]
       }
     });
-  }
-
+  } //chiusura if
 } //funzione per creare secondo grafico a torta
 
-function getDataLine(access) {
-  var query = {'level': access};
+function getDataLine() {
+
+  var searchParams = new URLSearchParams(new URL(location.href).search);
+  var level = searchParams.get('level');
+
+  if(!level) {
+    level = 'guest';
+  }
+
   $.ajax({
     url: 'database.php',
     method: 'GET',
-    data: query,
+    data: { 'level': level },
     success: function(data) {
       getChart(data);
-      console.log(data, 'ciao');
     },
     error: function(error) {
-      alert('Errore');
+      console.log('Errore', error);
     }
   });
 } //funzione per prendere dati grafico a linea
 
-function getDataPie(access) {
+function getDataPie() {
 
-  var query = {'level': access};
+  var searchParams = new URLSearchParams(new URL(location.href).search);
+  var level = searchParams.get('level');
+
+  if(!level) {
+    level = 'guest';
+  }
 
   $.ajax({
     url: 'database1.php',
     method: 'GET',
-    data: query,
+    data: { 'level': level },
     success: function(data) {
       getChartPie(data)
     },
@@ -160,13 +167,19 @@ function getDataPie(access) {
   });
 } //funzione per prendre dati grafico a torta
 
-function getDataLine2(access) {
-  var query = {'level': access};
+function getDataLine2() {
 
+  var searchParams = new URLSearchParams(new URL(location.href).search);
+  var level = searchParams.get('level');
+
+  if(!level) {
+    level = 'guest';
+  }
+  
   $.ajax({
     url: 'database2.php',
     method: 'GET',
-    data: query,
+    data: { 'level': level },
     success: function(data) {
       getChart2(data);
     },

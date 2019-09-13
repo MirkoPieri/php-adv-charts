@@ -3,15 +3,13 @@
   header('Content-type: application/json');
 
   include 'fulldb.php';
-  $hola = $_GET['level'];
 
-  $nul = [];
+  $arr = [];
 
-    if ($hola == 'clevel') {
-    echo json_encode($graphs['team_efficiency']);
-  } else {
-    echo json_encode($nul);
+  if ($hola === "clevel") {
+    $arr[] = $graphs['team_efficiency'];
   }
 
+  echo json_encode($arr);
   // secondo grafico a linea
 ?>

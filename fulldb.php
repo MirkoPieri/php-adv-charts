@@ -1,5 +1,7 @@
 <?php
 
+  $hola = $_GET['level'] ?? 'guest';
+
   $graphs = [
     'fatturato' => [
       'type' => 'line',
